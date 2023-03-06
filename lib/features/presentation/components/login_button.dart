@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:katana_mobile/core/constants/palette.dart';
+import 'package:katana_mobile/features/presentation/pages/home_page.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginButton extends StatelessWidget {
@@ -18,7 +19,10 @@ class LoginButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(7),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
+        },
         style: ElevatedButton.styleFrom(
           fixedSize: Size(100.w, 6.h),
           backgroundColor: Colors.transparent,

@@ -31,8 +31,9 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Login With Cubit',
-            theme: ThemeData.dark()
-                .copyWith(scaffoldBackgroundColor: Palette.primary),
+            theme: ThemeData.dark().copyWith(
+                scaffoldBackgroundColor: Palette.primary,
+                appBarTheme: AppBarTheme(color: Palette.primary)),
             home: const NLoginPage());
       },
     );

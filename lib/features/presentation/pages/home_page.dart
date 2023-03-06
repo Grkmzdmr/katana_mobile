@@ -9,6 +9,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedTab = 0;
+
+  _changeTab(int index) {
+    setState(() {
+      _selectedTab = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -35,6 +43,23 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        currentIndex: _selectedTab,
+        onTap: (index) => _changeTab(index),
+        selectedItemColor: Palette.white,
+        unselectedItemColor: Palette.black,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: "Anasayfa"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.done_outline), label: "Görevlerim"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_outlined), label: "Bildirimler"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_outlined), label: "Hesap"),
+        ],
       ),
     );
   }

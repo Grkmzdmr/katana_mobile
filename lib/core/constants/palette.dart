@@ -8,5 +8,6 @@ class Palette {
   static const Color gradientFirst = Color(0xffff0084);
   static const Color gradientSecond = Color(0xff33001b);
   static const Color white = Color.fromARGB(255, 255, 255, 255);
-  static const Color black = Color.fromARGB(0, 0, 0, 0);
+  static const Color black = Color.fromARGB(255, 0, 0, 0);
+  static const Color newPrimary = Color.fromARGB(255, 255, 0, 115);
 }
