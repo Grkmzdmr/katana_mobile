@@ -21,8 +21,13 @@ class LoginError extends LoginState {
 }
 
 
+class LoginEmptyBoxError extends LoginState{
+
+}
+
+
 class LoginFinished extends LoginState{
-   final LoginResponseData loginResponseData;
+  final LoginResponseData loginResponseData;
   
   LoginFinished({required this.loginResponseData});
 }

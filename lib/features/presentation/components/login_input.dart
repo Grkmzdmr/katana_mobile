@@ -3,10 +3,10 @@ import 'package:katana_mobile/core/constants/palette.dart';
 
 class LoginField extends StatelessWidget {
   final String hintText;
-  const LoginField({
-    Key? key,
-    required this.hintText,
-  }) : super(key: key);
+  final TextEditingController controller;
+  final bool visibility;
+  const LoginField({Key? key, required this.hintText, required this.controller,required this.visibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,10 @@ class LoginField extends StatelessWidget {
           maxWidth: 400,
         ),
         child: TextFormField(
+          controller: controller,
+          obscureText: visibility,
           decoration: InputDecoration(
+            
             contentPadding: const EdgeInsets.all(18),
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(
@@ -28,7 +31,7 @@ class LoginField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color:  Palette.fourth,
+                color: Palette.fourth,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(10),

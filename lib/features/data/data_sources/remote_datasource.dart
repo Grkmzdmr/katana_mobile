@@ -8,33 +8,21 @@ import 'package:katana_mobile/features/data/models/login_model.dart';
 import 'package:flutter/material.dart';
 
 abstract class RemoteDataSource {
-  Future<LoginModelData> login(
-      String? sign, String? password, String? deviceId, int userDeviceTypeId);
+  Future<LoginModelData> login(String? sign, String? password);
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
   final ApiService apiService = instance<ApiService>();
 
   @override
-  Future<LoginModelData> login(String? sign, String? password, String? deviceId,
-      int userDeviceTypeId) async {
+  Future<LoginModelData> login(String? sign, String? password) async {
     try {
       Map<String, dynamic> data = await apiService.getData(Strings.loginUrl, {
-        'sign': '$sign',
+        'username': '$sign',
         'password': '$password',
-        'deviceId': '$deviceId',
-        'userDeviceTypeId': '$userDeviceTypeId'
       });
 
-      // Map<String, dynamic> list = data;
-      //List<Map<String, dynamic>> mapList = [];
-
-      // for (int i = 0; i < list.length; i++) {
-      //   Map<String, dynamic> map = list[i] as Map<String, dynamic>;
-      //   mapList.add(map);
-      // }
-
-      LoginModel loginModel = LoginModel.fromMap(data['data']);
+      //LoginModel loginModel = LoginModel.fromMap(data['data']);
       LoginModelData loginModelData = LoginModelData.fromMap(data);
       return loginModelData;
     } catch (e) {

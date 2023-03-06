@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class LoginRepository {
   Future<Either<Failure, LoginResponseData>> login(
-      String? sign, String? password, String? deviceId, int userDeviceTypeId);
+      String? sign, String? password);
 }

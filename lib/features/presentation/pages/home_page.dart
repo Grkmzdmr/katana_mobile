@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:katana_mobile/core/constants/palette.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedTab = 0;
+  final tokenBox = Hive.box("tokenBox");
 
   _changeTab(int index) {
     setState(() {
@@ -21,7 +23,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(tokenBox.get("token"),)
+      ),
       backgroundColor: Palette.white,
       body: Padding(
         padding: const EdgeInsets.all(10.0),

@@ -4,7 +4,8 @@ import 'package:katana_mobile/features/presentation/pages/home_page.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({Key? key}) : super(key: key);
+  final VoidCallback? onPressed;
+  const LoginButton({Key? key,required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,7 @@ class LoginButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(7),
       ),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomePage()));
-        },
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           fixedSize: Size(100.w, 6.h),
           backgroundColor: Colors.transparent,
