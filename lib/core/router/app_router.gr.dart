@@ -17,18 +17,12 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    NLoginRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const NLoginPage(),
-      );
-    },
     HomeRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const HomePage(),
       );
-    },
+    }
   };
 
   @override
@@ -36,30 +30,14 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: '/Login',
+          redirectTo: '/Home',
           fullMatch: true,
-        ),
-        RouteConfig(
-          NLoginRoute.name,
-          path: '/Login',
         ),
         RouteConfig(
           HomeRoute.name,
           path: '/Home',
         ),
       ];
-}
-
-/// generated route for
-/// [NLoginPage]
-class NLoginRoute extends PageRouteInfo<void> {
-  const NLoginRoute()
-      : super(
-          NLoginRoute.name,
-          path: '/Login',
-        );
-
-  static const String name = 'NLoginRoute';
 }
 
 /// generated route for
